@@ -1,0 +1,5 @@
+#!/bin/bash
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+NOSLASH="$( $1 | sed 's:.*/::' )"
+bash $(zenity --list --column=SCRIPT --column=DESCRIPTION --hide-column=1 --hide-header "$DIR/ytpl.sh $1" "1. Download playlist / album in .opus format" "$DIR/beets.sh $NOSLASH" "2. Set metadata with Beets" "$DIR/fixgenres.sh" "3. Fix opus genre tagging! Necessarily!" "$DIR/genredefs.sh" "4. Download genres to mpdl database" "$DIR/mpdl -f" "5. Update mpdl" "$DIR/mpdl" "Start mpdl" "$DIR/playlistmaker" "Make custom playlist")
+

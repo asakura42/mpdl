@@ -1,0 +1,7 @@
+#!/bin/bash
+MUSBASE="~/Music"
+FILEBASE=$(mpc --host password@localhost --port 6600 --format "%file%" | head -n1)
+if [[ $(mpc --host password@localhost --port 6600 | head -n2 | tail -n1 | grep paused) ]] ; then
+	exit
+else
+	rm $MUSBASE/$FILEBASE

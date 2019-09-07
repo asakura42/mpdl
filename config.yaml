@@ -1,0 +1,11 @@
+directory: ~/Music
+library: ~/.config/beets/.musiclibrary.db
+import:
+        copy: no
+plugins: lastgenre chroma
+lastgenre:
+        count: 2
+        separator: ';'
+        whitelist: ~/.config/beets/genres.txt
+chroma:
+        auto: yes
