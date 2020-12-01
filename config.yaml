@@ -2,10 +2,13 @@ directory: ~/Music
 library: ~/.config/beets/.musiclibrary.db
 import:
         copy: no
+match:
+    strong_rec_thresh: 0.10
 plugins: lastgenre chroma
 lastgenre:
+        auto: yes
+        force: yes
         count: 2
         separator: ';'
-        whitelist: ~/.config/beets/genres.txt
 chroma:
         auto: yes
