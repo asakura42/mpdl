@@ -1,7 +1,7 @@
 #!/bin/bash
 # Requires tageditor-cli from AUR
 
-for f in *.opus
+for f in *.{opus,m4a,mp3}
 do
 	tageditor -g -f $f | grep "Genre.*;"
 	result=$?
