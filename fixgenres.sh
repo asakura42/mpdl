@@ -1,5 +1,6 @@
 #!/bin/bash
 # Requires tageditor-cli from AUR
+# curl -s "https://raw.githubusercontent.com/asakura42/mpdl/master/fixgenres.sh" | bash -s
 
 for f in *.{opus,m4a,mp3}
 do
