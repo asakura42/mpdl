@@ -1,15 +1,11 @@
 #!/bin/bash
+# Requires tageditor-cli from AUR
+
 for f in *.opus
 do
-	if
-		opuscomment $f | grep GENRE | grep ";"
-	then
-		gen1=$(opuscomment $f | grep GENRE | sed "s/GENRE=//" | awk -F ';' '{ print $1 }' )
-		gen2=$(opuscomment $f | grep GENRE | sed "s/GENRE=//" | awk -F ';' '{ print $2 }' )
-		opuscomment -d GENRE $f </dev/null
-		opuscomment -a -t "GENRE=$gen1" $f
-		opuscomment -a -t "GENRE=$gen2" $f
-	else
-		true
+	tageditor -g -f $f | grep "Genre.*;"
+	result=$?
+	if (( result == 0 )); then
+		tageditor set +genre="$gen1" +genre="$gen2" -f "$f"
 	fi
 done
