@@ -11,5 +11,6 @@ do
 		gen1=$(awk -F ';' '{ print $1 }' <<< "$genres")
 		gen2=$(awk -F ';' '{ print $2 }' <<< "$genres")
 		tageditor set +genre="$gen1" +genre="$gen2" -f "$f"
+		find . -maxdepth 1 -name "$f*.bak" -exec rm {} +
 	fi
 done
